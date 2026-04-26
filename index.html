@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neon Frontier: Drone Breaker Prototype</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="startScreen" class="overlay visible">
+      <div class="panel">
+        <h1>Neon Frontier</h1>
+        <p>Mission: Destroy 10 drones and reach the extraction gate.</p>
+        <p>Desktop: WASD move, Mouse look, Left click shoot, Space jump, Right click aim.</p>
+        <button id="startBtn">Start Mission</button>
+      </div>
+    </div>
+
+    <div id="gameOverScreen" class="overlay">
+      <div class="panel">
+        <h2 id="gameOverTitle">Mission Failed</h2>
+        <p id="gameOverReason"></p>
+        <button id="restartBtn">Restart</button>
+      </div>
+    </div>
+
+    <div id="hud">
+      <div id="topLeft">
+        <div>HEALTH</div>
+        <div class="bar"><div id="healthFill"></div></div>
+      </div>
+
+      <div id="topCenter">Destroy 10 drones and reach the extraction gate</div>
+
+      <div id="topRight">
+        <div>AMMO: <span id="ammoValue">40</span></div>
+        <div>SCORE: <span id="scoreValue">0</span></div>
+      </div>
+
+      <div id="crosshair">+</div>
+
+      <div id="mobileControls">
+        <div id="joystickBase"><div id="joystickKnob"></div></div>
+        <button id="jumpBtn">JUMP</button>
+        <button id="shootBtn">FIRE</button>
+      </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
