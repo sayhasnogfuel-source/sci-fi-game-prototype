@@ -1,0 +1,194 @@
+:root {
+  --bg: #06101c;
+  --cyan: #44cfff;
+  --orange: #ff9138;
+  --panel: rgba(3, 8, 18, 0.82);
+}
+
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: radial-gradient(circle at 20% 20%, #1b2d49, var(--bg));
+  color: #eaf7ff;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+canvas {
+  display: block;
+}
+
+#hud {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+#topLeft,
+#topCenter,
+#topRight {
+  position: absolute;
+  text-shadow: 0 0 8px rgba(68, 207, 255, 0.6);
+  font-weight: 700;
+}
+
+#topLeft {
+  top: 16px;
+  left: 16px;
+  width: 220px;
+}
+
+.bar {
+  margin-top: 6px;
+  width: 100%;
+  height: 16px;
+  border: 2px solid var(--cyan);
+  border-radius: 999px;
+  background: rgba(8, 16, 34, 0.8);
+  overflow: hidden;
+}
+
+#healthFill {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #ff4343, #ffb347);
+  box-shadow: 0 0 12px rgba(255, 109, 72, 0.7);
+}
+
+#topCenter {
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 16px;
+  border: 1px solid rgba(68, 207, 255, 0.5);
+  border-radius: 10px;
+  background: rgba(9, 23, 44, 0.6);
+  text-align: center;
+}
+
+#topRight {
+  top: 16px;
+  right: 16px;
+  text-align: right;
+  line-height: 1.45;
+}
+
+#crosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #d8f6ff;
+  font-size: 30px;
+  text-shadow: 0 0 12px var(--cyan), 0 0 24px var(--cyan);
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.66);
+  z-index: 10;
+}
+
+.overlay.visible {
+  display: flex;
+}
+
+.panel {
+  width: min(520px, 90vw);
+  padding: 26px;
+  background: var(--panel);
+  border: 1px solid rgba(68, 207, 255, 0.65);
+  border-radius: 14px;
+  box-shadow: 0 0 22px rgba(68, 207, 255, 0.2);
+  text-align: center;
+}
+
+.panel h1,
+.panel h2 {
+  margin-top: 0;
+  color: var(--cyan);
+}
+
+button {
+  pointer-events: auto;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 18px;
+  color: #081223;
+  background: linear-gradient(180deg, #8ae8ff, #3ac8ff);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+#mobileControls {
+  pointer-events: auto;
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 38vh;
+  display: none;
+}
+
+#joystickBase {
+  position: absolute;
+  left: 22px;
+  bottom: 26px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px solid rgba(68, 207, 255, 0.8);
+  background: rgba(8, 24, 42, 0.5);
+}
+
+#joystickKnob {
+  position: absolute;
+  left: 35px;
+  top: 35px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(68, 207, 255, 0.85);
+  box-shadow: 0 0 16px rgba(68, 207, 255, 0.7);
+}
+
+#jumpBtn,
+#shootBtn {
+  position: absolute;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  color: #fff;
+}
+
+#jumpBtn {
+  right: 132px;
+  bottom: 44px;
+  background: linear-gradient(180deg, #ffa95b, #ff7d1d);
+}
+
+#shootBtn {
+  right: 26px;
+  bottom: 24px;
+  background: linear-gradient(180deg, #6dd8ff, #249bf0);
+}
+
+@media (max-width: 900px), (pointer: coarse) {
+  #mobileControls {
+    display: block;
+  }
+
+  #topCenter {
+    width: min(90vw, 560px);
+    font-size: 14px;
+  }
+}
